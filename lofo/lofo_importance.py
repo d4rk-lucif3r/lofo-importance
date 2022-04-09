@@ -53,7 +53,7 @@ class LOFOImportance:
 
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            cv_results = cross_validate(self.model, X, y, cv=self.cv, scoring=self.scoring, fit_params=fit_params)
+            cv_results = cross_validate(self.model, X, y, cv=self.cv, scoring=self.scoring, fit_params=fit_params, verbose=self.verbose)
         return cv_results['test_score']
 
     def _get_cv_score_parallel(self, feature, result_queue):
